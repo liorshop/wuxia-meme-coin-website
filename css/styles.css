@@ -1,0 +1,73 @@
+:root {
+    /* Color Palette */
+    --color-gold: #FFD700;
+    --color-red: #FF0000;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    
+    /* Golden Ratio for Typography */
+    --base-font-size: 16px;
+    --h1-size: calc(var(--base-font-size) * 2.618);
+    --h2-size: calc(var(--base-font-size) * 1.618);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.618;
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+/* Layout using CSS Grid */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--color-gold);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-height: 80px;
+    margin-right: 1rem;
+}
+
+.wuxia-characters {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-red);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-black);
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--color-red);
+}
