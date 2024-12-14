@@ -1,73 +1,133 @@
 :root {
-    /* Color Palette */
-    --color-gold: #FFD700;
-    --color-red: #FF0000;
-    --color-black: #000000;
-    --color-white: #FFFFFF;
-    
-    /* Golden Ratio for Typography */
-    --base-font-size: 16px;
-    --h1-size: calc(var(--base-font-size) * 2.618);
-    --h2-size: calc(var(--base-font-size) * 1.618);
+    /* Chinese-Inspired Color Palette */
+    --color-imperial-red: #BA0021;
+    --color-imperial-gold: #D4AF37;
+    --color-ink-black: #1A1A1A;
+    --color-jade-green: #00A86B;
+    --color-porcelain: #F4F4F4;
+
+    /* Chinese Typography */
+    --font-chinese: 'Noto Serif SC', serif;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-imperial-gold) var(--color-ink-black);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--color-ink-black);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-imperial-gold);
+    border-radius: 20px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.618;
-    background-color: var(--color-white);
-    color: var(--color-black);
+    font-family: var(--font-primary);
+    background-color: var(--color-ink-black);
+    color: var(--color-porcelain);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Layout using CSS Grid */
-body {
+.chinese-title {
+    font-family: var(--font-chinese);
+    color: var(--color-imperial-gold);
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.chinese-pattern {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.1;
+}
+
+.left-pattern {
+    left: 0;
+    top: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L80 50 L50 90 L20 50 Z" fill="%23D4AF37" opacity="0.2"/></svg>');
+}
+
+.right-pattern {
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10 20 Q50 50, 90 20 Q50 80, 10 20" fill="%23D4AF37" opacity="0.2"/></svg>');
+}
+
+.design-philosophy {
+    background-color: rgba(30, 30, 60, 0.6);
+    padding: 4rem 10%;
+    text-align: center;
+}
+
+.philosophy-grid {
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background-color: var(--color-gold);
+.philosophy-item {
+    background-color: rgba(20, 20, 40, 0.7);
+    padding: 2rem;
+    border-left: 5px solid var(--color-imperial-gold);
+    transition: transform 0.3s ease;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
+.philosophy-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
-.logo {
-    max-height: 80px;
-    margin-right: 1rem;
+.philosophy-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-imperial-gold);
 }
 
-.wuxia-characters {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 1.5rem;
-    color: var(--color-red);
+.cultural-connection {
+    background-color: rgba(15, 15, 30, 0.9);
+    padding: 4rem 10%;
+    text-align: center;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
+.cultural-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-nav a {
-    text-decoration: none;
-    color: var(--color-black);
-    transition: color 0.3s ease;
+.cultural-item img {
+    max-width: 150px;
+    margin-bottom: 1rem;
+    filter: grayscale(20%) brightness(120%);
 }
 
-nav a:hover, nav a.active {
-    color: var(--color-red);
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-imperial-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
 }
